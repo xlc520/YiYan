@@ -1,2 +1,0 @@
-TypeError: Cannot read properties of null (reading 'split')
-    at handleRequest (worker.js:28:19)
