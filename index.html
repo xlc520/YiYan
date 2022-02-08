@@ -38,7 +38,7 @@
     function r() {
       var n = Math.floor(Math.random() * h.length);
       text.innerHTML = h[n].t;
-      name.innerText = '—— 「' + h[n].n + '」';
+      document.getElementsByClassName('author')[0].innerText = '—— 「' + h[n].n + '」';
     } 
   </script>
   </head>
