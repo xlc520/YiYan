@@ -1,2 +1,3 @@
-# RIPHitokoto
+# 一言
+
 快来欣赏RIP大师们的一言吧！
