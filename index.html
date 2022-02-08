@@ -5,10 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="keywords" content="RIP,光栅图像处理器,Hitokoto,一言,语句">
   <meta name="description" content="在这里阅读RIP业界顶流大佬的金句名言，充实你的心灵，坚定你的信仰. By RIP Wiki Team">
+  <script src="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/js/mdui.min.js"></script>
   <link href="./src/icon" rel="stylesheet">
   <link rel="stylesheet" href="./src/material.indigo-pink.min.css">
   <link rel="stylesheet" href="./src/animate.min.css">
   <link rel="stylesheet" href="./src/welcome.css">
+  <script>
+    var $ = mdui.$;
+    var text = document.getElementById('hitokoto_text');
+    var name = document.getElementById('hitokoto_author');
+    var h;
+    $.ajax({
+      method: 'GET',
+      url: './count.json',
+      success: function (data) {
+        var jr = JSON.parse(data);
+        if(jr.count > 0) {
+          var n = Math.floor(Math.random() * jr.count);
+          $.ajax({
+            method: 'GET',
+            url: './hitokoto_' + n + '.json',
+            success: function (data) {
+              h = JSON.parse(data);
+              var int = self.setInterval("r()",12000);
+            }
+          })
+        }
+        
+      }
+    });
+    function r() {
+      var n = Math.floor(Math.random() * h.length);
+      text.innerHTML = h[n].t;
+      name.innerHTML = '—— 「' + h[n].n + '」';
+    } 
+  </script>
   </head>
 
 <body style="position:absolute;">
@@ -37,7 +68,7 @@
           <div class="bracket left">『</div>
           <div class="word" id="hitokoto_text">只会模仿,生搬硬套.</div>
           <div class="bracket right">』</div>
-          <div class="author" id="hitokoto_author">—— 「Neko Neko Relay - Neko」</div>
+          <div class="author" id="hitokoto_author">—— 「Neko Neko Relay - Neko💫」</div>
         </div>
       </div>
     </main>
