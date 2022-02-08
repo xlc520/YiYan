@@ -38,7 +38,7 @@
     function r() {
       var n = Math.floor(Math.random() * h.length);
       text.innerHTML = h[n].t;
-      name.innerHTML = '—— 「' + h[n].n + '」';
+      name.innerText = '—— 「' + h[n].n + '」';
     } 
   </script>
   </head>
@@ -82,6 +82,6 @@
 </div>
 <script>
   var text = document.getElementById('hitokoto_text');
-  var name = document.getElementById('hitokoto_author');
+  var name = document.getElementsByClassName('author')[0];
 </script>
 </body><auto-scroll></auto-scroll></html>
