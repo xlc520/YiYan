@@ -20,8 +20,11 @@
       url: './count.json',
       success: function (data) {
         var jr = JSON.parse(data);
+        console.log(jr);
         if(jr.count > 0) {
           var n = Math.floor(Math.random() * jr.count);
+          if(n == 0) n++;
+          console.log(n);
           $.ajax({
             method: 'GET',
             url: './hitokoto_' + n + '.json',
